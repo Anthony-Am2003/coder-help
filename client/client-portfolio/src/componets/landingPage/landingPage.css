@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5; /* Color de fondo gris */
+  }
+  
+  .landing-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1A1A1A; 
+  }
+  
+  .logo {
+    max-width: 150px; /* Ancho máximo del logo */
+    margin-bottom: 20px; /* Espacio entre el logo y el título */
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    color: white; /* Color del texto blanco */
+    margin-bottom: 30px;
+  }
+  
+  .message {
+    font-size: 1.2rem;
+    color: #ffffff; 
+    margin-bottom: 40px; 
+    text-align: center; 
+  }
+  
+  .options-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .option {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: white;
+    color: #1A1A1A; 
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .option.recruiter {
+    border: 2px solid #1A1A1A; 
+  }
+  
+  .option.developer {
+    border: 2px solid #1A1A1A; 
+  }
+  
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2rem;
+    }
+  
+    .message {
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+  
+    .option {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+  }
+  
+  
+  @media (max-width: 480px) {
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .message {
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+  
+    .option {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+    }
+  }
