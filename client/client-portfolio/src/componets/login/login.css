@@ -1,0 +1,67 @@
+/* Estilos generales del cuerpo del documento */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1A1A1A; /* Color de fondo gris */
+  }
+  
+ 
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+  
+  /* Estilos para el logo */
+  .logo {
+    max-width: 150px; /* Ancho máximo del logo */
+    margin-bottom: 20px; /* Espacio entre el logo y los campos */
+  }
+  
+  /* Estilos para los campos de entrada */
+  .input {
+    width: 80%; /* El ancho ocupa el 80% del contenedor disponible */
+    padding: 10px;
+    margin-bottom: 20px; /* Separación de 20px entre los campos */
+    border: 1px solid #1A1A1A; /* Borde negro */
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  /* Estilos para el botón de inicio de sesión */
+  .login-button {
+    background-color: #e2dddd;
+    color: #121212;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80%; /* El ancho ocupa el 80% del contenedor disponible */
+    max-width: 250px; /* Ancho máximo del botón */
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  /* Estilos al pasar el ratón por encima del botón de inicio de sesión */
+  .login-button:hover {
+    background-color: #333; /* Color de fondo gris más oscuro al pasar el ratón */
+    color: white;
+  }
+  
+  /* Estilos para el enlace de registro */
+  .register-link {
+    color: #f6f6f6;
+    position:static;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  
+  /* Estilos al pasar el ratón por encima del enlace de registro */
+  .register-link:hover {
+    text-decoration: underline;
+  }
+  
