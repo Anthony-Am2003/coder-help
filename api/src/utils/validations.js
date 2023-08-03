@@ -1,4 +1,7 @@
 const {User} = require("../db");
+const {SALT_ROUNDS} = require("../utils/constansts")
+
+const bcrypt = require("bcrypt");
 
 
 const validateEmail = async (email) => {
@@ -8,7 +11,6 @@ const validateEmail = async (email) => {
     if (!isEmailValid) {
       return false;
     }
-  
     const user = await User.findOne({ where: { email } });
     if (user) {
       return false;
@@ -17,13 +19,6 @@ const validateEmail = async (email) => {
     return true;
   };
  
-  
-  
-  
-  
-  
-
-
 const validateName = (name) => {
     if(name.length === 0){throw new Error("name cannot be empty")}
     const nameWithoutSpaces = name.trim();
@@ -32,8 +27,18 @@ const validateName = (name) => {
     return `${firstLetter}${restWord}`;
 }
 
+const hashPassword = async(password) => {
+  try {
+    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
+    return hashedPassword;
+  } catch (error) {
+    throw new Error(`Error: ${error.message}`);
+  }
+}
+
 
 module.exports = {
     validateEmail,
-    validateName
+    validateName,
+    hashPassword
 }
