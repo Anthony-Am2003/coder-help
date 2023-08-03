@@ -1,6 +1,6 @@
 const {User} = require("../../../db");
 const {conn} = require("../../../db");
-const {validateEmail, validateName} = require("../../../utils/validations")
+const {validateEmail, validateName, hashPassword} = require("../../../utils/validations")
 const {ROLE_DEFAULT} = require("../../../utils/constansts")
 
 module.exports = async(firstName, lastName, email, password) => {
@@ -14,6 +14,8 @@ module.exports = async(firstName, lastName, email, password) => {
     const firstNameValidate = validateName(firstName);
     const LastNameValidate = validateName(lastName);
     console.log(LastNameValidate);
+    password = await hashPassword(password);
+    console.log(password);
 
     const newUser = await User.create({
         firstName:firstNameValidate,
