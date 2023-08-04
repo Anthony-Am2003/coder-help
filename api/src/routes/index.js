@@ -12,6 +12,7 @@ const {Router} = require("express")
 
 const router = Router();
 
-router.post("/user", createNewUser)
+router.post("/user/login", )
+router.post("/user/register", createNewUser)
 
 module.exports = router;

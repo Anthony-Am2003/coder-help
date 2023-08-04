@@ -4,21 +4,23 @@ const {SALT_ROUNDS} = require("../utils/constansts")
 const bcrypt = require("bcrypt");
 
 
-const validateEmail = async (email) => {
+const validateEmail = (email) => {
     const patron = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  
     const isEmailValid = patron.test(email);
     if (!isEmailValid) {
       return false;
     }
-    const user = await User.findOne({ where: { email } });
-    if (user) {
-      return false;
-    }
-  
     return true;
   };
- 
+
+const getUserByEmail = async(email) => {
+  const user = await User.findOne({ where: { email } });
+  if (user) {
+    return user;
+  };
+  return null;
+}
+  
 const validateName = (name) => {
     if(name.length === 0){throw new Error("name cannot be empty")}
     const nameWithoutSpaces = name.trim();
@@ -40,5 +42,6 @@ const hashPassword = async(password) => {
 module.exports = {
     validateEmail,
     validateName,
-    hashPassword
+    hashPassword,
+    getUserByEmail
 }
