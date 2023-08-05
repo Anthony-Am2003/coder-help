@@ -1,6 +1,6 @@
 //POST ROUTES
-
-const createNewUser = require("../routes/handlers/post/createUser")
+const createNewUser = require("../routes/handlers/post/createUser");
+const userLogin = require("../routes/handlers/post/loginUser");
 
 // GET ROUTES
 
@@ -12,7 +12,7 @@ const {Router} = require("express")
 
 const router = Router();
 
-router.post("/user/login", )
-router.post("/user/register", createNewUser)
+router.post("/user/login", userLogin);
+router.post("/user/register", createNewUser);
 
 module.exports = router;
