@@ -1,5 +1,5 @@
 const {User} = require("../../../db");
 
 module.exports = async (email, code) => {
-    return 
+    return "nada"
 }
