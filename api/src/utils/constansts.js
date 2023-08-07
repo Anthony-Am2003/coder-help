@@ -4,5 +4,5 @@ const SALT_ROUNDS = 10;
 
 module.exports = {
     ROLE_DEFAULT,
-    SALT_ROUNDS
+    SALT_ROUNDS,
 }
