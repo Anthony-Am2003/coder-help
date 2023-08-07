@@ -36,12 +36,20 @@ const hashPassword = async(password) => {
   } catch (error) {
     throw new Error(`Error: ${error.message}`);
   }
-}
+};
+
+const generateCode = ()=>{
+  const decimalNumber = Math.random();
+  const enterNumber = decimalNumber*100000;
+  const code = String(enterNumber).padStart(6, '0');
+  return code;
+};
 
 
 module.exports = {
     validateEmail,
     validateName,
     hashPassword,
-    getUserByEmail
+    getUserByEmail,
+    generateCode
 }

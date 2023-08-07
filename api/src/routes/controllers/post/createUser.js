@@ -2,10 +2,10 @@
 const {User} = require("../../../db");
 
 //Functions to validate data
-const {validateEmail, validateName, hashPassword, getUserByEmail} = require("../../../utils/validations")
+const {validateEmail, validateName, hashPassword, getUserByEmail, generateCode} = require("../../../utils/validations")
 
 //Constants
-const {ROLE_DEFAULT, generateCode} = require("../../../utils/constansts")
+const {ROLE_DEFAULT} = require("../../../utils/constansts")
 
 module.exports = async(firstName, lastName, email, password) => {
     if(!firstName || !lastName || !email || !password) throw new Error("information is missing");
