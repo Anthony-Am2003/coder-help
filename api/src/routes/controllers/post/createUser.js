@@ -5,7 +5,7 @@ const {User} = require("../../../db");
 const {validateEmail, validateName, hashPassword, getUserByEmail} = require("../../../utils/validations")
 
 //Constants
-const {ROLE_DEFAULT} = require("../../../utils/constansts")
+const {ROLE_DEFAULT, generateCode} = require("../../../utils/constansts")
 
 module.exports = async(firstName, lastName, email, password) => {
     if(!firstName || !lastName || !email || !password) throw new Error("information is missing");
@@ -23,7 +23,8 @@ module.exports = async(firstName, lastName, email, password) => {
     const firstNameValidate = validateName(firstName);
     const LastNameValidate = validateName(lastName);
     password = await hashPassword(password);
-    email = email.toLowerCase()
+    email = email.toLowerCase();
+    const code = generateCode();
 
     //Creation of the new user
     const newUser = await User.create({
@@ -32,6 +33,7 @@ module.exports = async(firstName, lastName, email, password) => {
         email:email,
         password: password,
         role: role,
+        code: code
         
     });
     return newUser;
