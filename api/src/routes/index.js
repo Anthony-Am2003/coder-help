@@ -20,4 +20,5 @@ router.post("/user/activate-account", activateAccount);
 
 router.get("/user/reset-password", sendTokenRecovery);
 
+
 module.exports = router;
