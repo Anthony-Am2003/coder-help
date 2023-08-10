@@ -40,8 +40,8 @@ const hashPassword = async(password) => {
 
 const generateCode = ()=>{
   const decimalNumber = Math.random();
-  const enterNumber = decimalNumber*100000;
-  const code = String(enterNumber).padStart(6, '0');
+  const enterNumber = decimalNumber*1000000;
+  const code = Math.floor(enterNumber);
   return code;
 };
 

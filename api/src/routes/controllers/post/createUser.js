@@ -11,7 +11,7 @@ module.exports = async(firstName, lastName, email, password) => {
     if(!firstName || !lastName || !email || !password) throw new Error("information is missing");
 
     //Verify that the email has the correct format
-    const validationEmail =  await validateEmail(email);
+    const validationEmail = validateEmail(email);
     if(validationEmail === false) throw new Error("This email is not valid");
 
     //Verify that the user does not exist
@@ -25,6 +25,7 @@ module.exports = async(firstName, lastName, email, password) => {
     password = await hashPassword(password);
     email = email.toLowerCase();
     const code = generateCode();
+    
 
     //Creation of the new user
     const newUser = await User.create({
