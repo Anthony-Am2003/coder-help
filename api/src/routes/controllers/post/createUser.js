@@ -3,6 +3,7 @@ const {User} = require("../../../db");
 
 //Functions to validate data
 const {validateEmail, validateName, hashPassword, getUserByEmail, generateCode} = require("../../../utils/validations")
+const {sendEmail} = require("../../../utils/emails")
 
 //Constants
 const {ROLE_DEFAULT} = require("../../../utils/constansts")
@@ -37,6 +38,8 @@ module.exports = async(firstName, lastName, email, password) => {
         code: code
         
     });
+
+    const sendActivationEmail = await sendEmail(email, "activation of account", `your code for activate is ${code}`)
     return newUser;
 
 }

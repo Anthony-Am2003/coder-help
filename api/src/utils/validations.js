@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 
 
 const validateEmail = (email) => {
-    const patron = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const patron = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/;
     const isEmailValid = patron.test(email);
     if (!isEmailValid) {
       return false;
@@ -41,7 +41,7 @@ const hashPassword = async(password) => {
 const generateCode = ()=>{
   const decimalNumber = Math.random();
   const enterNumber = decimalNumber*1000000;
-  const code = Math.floor(enterNumber);
+  const code = Math.ceil(enterNumber);
   return code;
 };
 
